@@ -34,7 +34,7 @@ const features = [
 
 export default function WhyAfrican() {
   return (
-    <div className="grid grid-cols-4 gap-4 bg-[#141414]">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 bg-[#141414]">
       {features.map((data) => (
         <div
           key={data.title}

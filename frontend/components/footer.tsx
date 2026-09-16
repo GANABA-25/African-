@@ -36,8 +36,8 @@ const footerSections = [
 export default function Footer() {
   return (
     <>
-      <div className="max-w-7xl mx-auto py-20">
-        <div className="flex justify-between items-center">
+      <div className="max-w-7xl mx-auto py-20 px-4 lg:px-0">
+        <div className="max-[767px]:flex-col md:flex space-y-8 lg:space-y-0 justify-between items-center">
           <div className="space-y-2">
             <div className="flex items-center gap-1">
               <h1 className="text-2xl font-black">African</h1>

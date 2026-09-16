@@ -10,7 +10,7 @@ export default function MovieCard({
   rating,
 }: Movie) {
   return (
-    <div className="group relative h-80 overflow-hidden rounded-xl cursor-pointer">
+    <div className="group relative h-80 overflow-hidden rounded-xl cursor-pointer shadow-sm">
       <Image
         className="object-cover transition-transform duration-500 group-hover:scale-105"
         src={poster}
@@ -31,8 +31,8 @@ export default function MovieCard({
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 z-20 w-full p-5">
-        <h1 className="text-xl font-bold capitalize text-white">{title}</h1>
+      <div className="absolute bottom-0 left-0 z-10 w-full p-5">
+        <h1 className="font-bold capitalize text-white">{title}</h1>
 
         <p className="text-sm text-gray-300">
           {genre} · {year}
