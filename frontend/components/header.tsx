@@ -1,8 +1,25 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Button from "./button";
 import { Play, Plus, Search, Compass, Check } from "lucide-react";
 import SimpleSlider from "./slider";
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <header className="relative h-dvh min-h-175 overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -11,33 +28,56 @@ export default function Header() {
 
       <div className="absolute inset-0 z-10 bg-linear-to-b from-black/70 via-black/70 to-background" />
 
-      <div className="relative z-20 max-w-7xl mx-auto space-y-32">
-        <div className="flex items-center justify-between px-6 py-5">
-          <div className="flex items-center gap-1">
-            <h1 className="text-2xl font-black">African</h1>
+      <div className="relative z-20 space-y-32">
+        <div
+          className={`fixed top-0 left-0 right-0 z-50 px-6 py-5 transition-colors duration-300 ${
+            isScrolled ? "bg-black/95" : "bg-transparent"
+          }`}
+        >
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <div className="flex items-center gap-1">
+              <h1 className="text-2xl font-black">African</h1>
 
-            <Plus size={15} color="#f8bf4b" strokeWidth={5} />
-          </div>
+              <Plus size={15} color="#f8bf4b" strokeWidth={5} />
+            </div>
 
-          <nav>
-            <ul className="flex items-center gap-6 text-sm font-medium">
-              <li>Home</li>
-              <li>Movies</li>
-              <li>Genres</li>
-              <li>About</li>
-            </ul>
-          </nav>
+            <nav>
+              <ul className="flex items-center gap-6 text-sm font-medium">
+                <li className="group relative cursor-pointer transition-colors duration-300 hover:text-primary">
+                  Home
+                  <span className="absolute -bottom-2 left-1/2 h-px w-0 -translate-x-1/2 bg-primary transition-all duration-300 group-hover:w-full" />
+                </li>
 
-          <div className="flex items-center gap-5">
-            <Search size={18} />
+                <li className="group relative cursor-pointer transition-colors duration-300 hover:text-primary">
+                  Movies
+                  <span className="absolute -bottom-2 left-1/2 h-px w-0 -translate-x-1/2 bg-primary transition-all duration-300 group-hover:w-full" />
+                </li>
 
-            <button className="text-sm font-medium">Sign in</button>
+                <li className="group relative cursor-pointer transition-colors duration-300 hover:text-primary">
+                  Genres
+                  <span className="absolute -bottom-2 left-1/2 h-px w-0 -translate-x-1/2 bg-primary transition-all duration-300 group-hover:w-full" />
+                </li>
 
-            <Button>Get Started</Button>
+                <li className="group relative cursor-pointer transition-colors duration-300 hover:text-primary">
+                  About
+                  <span className="absolute -bottom-2 left-1/2 h-px w-0 -translate-x-1/2 bg-primary transition-all duration-300 group-hover:w-full" />
+                </li>
+              </ul>
+            </nav>
+
+            <div className="flex items-center gap-5">
+              <Search size={18} />
+
+              <button className="group relative cursor-pointer transition-colors duration-300 hover:text-primary ">
+                Sign in
+              </button>
+
+              <Button>Get Started</Button>
+            </div>
           </div>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-8 max-w-7xl mx-auto mt-52">
           <div className="inline-flex items-center gap-2">
             <span className="h-px w-8 bg-primary" />
             <span className="text-xs font-semibold tracking-[0.2em] text-primary uppercase">
@@ -51,6 +91,7 @@ export default function Header() {
               Made for the <br /> world.
             </span>
           </h1>
+
           <p className="text-gray-500">
             Discover unforgettable African movies, emerging filmmakers, and
             <br />
@@ -62,7 +103,10 @@ export default function Header() {
               <Play size={15} fill="black" /> Start Watching
             </Button>
 
-            <button className="border border-gray-400 p-3 px-6 rounded-xl flex items-center gap-2 font-bold capitalize">
+            <button
+              className="border border-gray-400 p-3 px-6 rounded-xl flex items-center gap-2 font-bold capitalize transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] hover:border-primary-light hover:shadow-[0_8px_25px_rgba(248,191,75,0.25)] active:translate-y-0
+        active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary/40 cursor-pointer"
+            >
               <Compass size={15} />
               Explore movies
             </button>
@@ -75,12 +119,14 @@ export default function Header() {
               </div>
               African Movies
             </li>
+
             <li className="flex items-center gap-2">
               <div className="bg-primary/20 rounded-full p-1 text-primary">
                 <Check size={10} />
               </div>
               Premium Streaming
             </li>
+
             <li className="flex items-center gap-2">
               <div className="bg-primary/20 rounded-full p-1 text-primary">
                 <Check size={10} />

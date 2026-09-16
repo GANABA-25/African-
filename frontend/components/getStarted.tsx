@@ -35,7 +35,7 @@ export default function GetStarted() {
             <div className="relative flex h-15 w-15 items-center justify-center rounded-md border border-primary/30 text-primary">
               <Icon size={20} />
 
-              <span className="absolute -right-3 -top-3 rounded-full border border-primary/20 px-2 text-xs text-primary">
+              <span className="absolute -right-2 -top-2 flex h-6 min-w-6 items-center justify-center rounded-full border border-primary/20 bg-background px-1 text-xs font-semibold text-primary">
                 {step.number}
               </span>
             </div>
