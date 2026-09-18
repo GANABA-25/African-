@@ -102,10 +102,12 @@ export default function HomePage() {
               </li>
             </ul>
 
-            <Button>
-              Join as a filmmaker
-              <ArrowRight size={15} />
-            </Button>
+            <div className="w-60">
+              <Button>
+                Join as a filmmaker
+                <ArrowRight size={15} />
+              </Button>
+            </div>
           </div>
 
           <div className="mt-8 lg:mt-0 relative h-100 lg:h-125 flex-1 rounded-2xl">
@@ -158,10 +160,12 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <Button>
-                <Play size={15} color="black" fill="black" />
-                Start Watching
-              </Button>
+              <div>
+                <Button>
+                  <Play size={15} color="black" fill="black" />
+                  Start Watching
+                </Button>
+              </div>
 
               <p className="text-sm text-gray-400">Cancel anytime</p>
             </div>
