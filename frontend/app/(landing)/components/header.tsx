@@ -67,15 +67,15 @@ export default function Header() {
 
             <div className="flex items-center gap-5">
               <Link
-                href="/auth?mode=signin"
+                href="/home"
                 className="group relative cursor-pointer transition-colors duration-300 hover:text-primary "
               >
                 Sign in
               </Link>
 
-              <span className="hidden md:block">
+              <Link href="/home" className="hidden md:block">
                 <Button>Get Started</Button>
-              </span>
+              </Link>
             </div>
           </div>
         </div>

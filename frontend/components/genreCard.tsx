@@ -9,6 +9,7 @@ export default function GenreCard({ name, count, image }: Category) {
         className="object-cover transition-transform duration-500 group-hover:scale-105"
         src={image}
         alt={name}
+        sizes="(max-width: 768px) 50vw, (max-width: 1280px) 25vw,"
         fill
       />
 
