@@ -1,10 +1,20 @@
-import Input from "@/components/input";
+"use client";
+
 import Image from "next/image";
 import { ArrowLeft, Mail, LockKeyhole, Plus } from "lucide-react";
-import Button from "@/components/button";
 import Link from "next/link";
+import Signin from "../../../components/auth/signinForm";
+import Signup from "../../../components/auth/signupForm";
+import ResetPassword from "@/components/auth/resetpasswordForm";
+import { useSearchParams } from "next/navigation";
 
-export default function Signin() {
+export default function AuthPage() {
+  const searchParams = useSearchParams();
+  const mode = searchParams.get("mode");
+
+  const isSignin = mode === "signin";
+  const isSignup = mode === "signup";
+  const isResetPassword = mode === "reset-password";
   return (
     <div className="flex min-h-dvh">
       <div className="relative w-1/2">
@@ -43,38 +53,9 @@ export default function Signin() {
             <p>Back to home</p>
           </Link>
 
-          <div className="space-y-1">
-            <h1 className="text-3xl font-black">Welcome back</h1>
-
-            <p className="text-sm text-gray-500">
-              Sign in to continue watching African cinema.
-            </p>
-          </div>
-
-          <Input
-            label="Email"
-            placeholder="you@gmail.com"
-            type="email"
-            icon={<Mail size={15} />}
-          />
-
-          <Input
-            label="Password"
-            placeholder="Enter your password"
-            type="password"
-            icon={<LockKeyhole size={15} />}
-          />
-
-          <p className="cursor-pointer text-right text-sm text-primary transition-colors hover:text-primary-light">
-            Forgot password?
-          </p>
-
-          <Button>Sign in</Button>
-
-          <div className="flex items-center justify-center gap-2 text-sm">
-            <p className="text-gray-500">Don't have an account?</p>
-            <p className="cursor-pointer text-primary">Sign up</p>
-          </div>
+          {isSignin && <Signin />}
+          {isSignup && <Signup />}
+          {isResetPassword && <ResetPassword />}
         </div>
       </div>
     </div>
