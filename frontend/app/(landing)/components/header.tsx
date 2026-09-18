@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Button from "../../../components/button";
 import { Play, Plus, Compass, Check } from "lucide-react";
@@ -66,9 +66,12 @@ export default function Header() {
             </nav>
 
             <div className="flex items-center gap-5">
-              <button className="group relative cursor-pointer transition-colors duration-300 hover:text-primary ">
+              <Link
+                href="/signin"
+                className="group relative cursor-pointer transition-colors duration-300 hover:text-primary "
+              >
                 Sign in
-              </button>
+              </Link>
 
               <span className="hidden md:block">
                 <Button>Get Started</Button>
@@ -99,9 +102,11 @@ export default function Header() {
           </p>
 
           <div className="max-[767px]:flex-col flex items-center gap-4">
-            <Button>
-              <Play size={15} fill="black" /> Start Watching
-            </Button>
+            <span>
+              <Button>
+                <Play size={15} fill="black" /> Start Watching
+              </Button>
+            </span>
 
             <button
               className="border max-[767px]:w-full border-gray-400 p-3 px-6 rounded-xl flex justify-center items-center gap-2 font-bold capitalize transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] hover:border-primary-light hover:shadow-[0_8px_25px_rgba(248,191,75,0.25)] active:translate-y-0
@@ -112,7 +117,7 @@ export default function Header() {
             </button>
           </div>
 
-          <ul className="grid grid-cols-2 md:grid-cols-3 items-center gap-4 text-sm mt-4 text-gray-500">
+          <ul className="grid grid-cols-2 md:flex items-center gap-4 text-sm mt-4 text-gray-500">
             <li className="text-xs md:text-base flex items-center gap-2">
               <div className="bg-primary/20 rounded-full p-1 text-primary">
                 <Check size={10} />
