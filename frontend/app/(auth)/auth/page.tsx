@@ -22,6 +22,8 @@ export default function AuthPage() {
           className="object-cover"
           src="https://images.pexels.com/photos/7991305/pexels-photo-7991305.jpeg?auto=compress&cs=tinysrgb&w=1920"
           alt="authBg"
+          sizes="(max-width: 768px) 50vw, (max-width: 1280px) 25vw,"
+          loading="eager"
           fill
         />
 

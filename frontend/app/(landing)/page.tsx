@@ -115,6 +115,7 @@ export default function HomePage() {
               className="object-cover transition-transform duration-500 hover:scale-105 rounded-md"
               src="https://images.pexels.com/photos/8088390/pexels-photo-8088390.jpeg?auto=compress&cs=tinysrgb&w=1200"
               alt="Filmmaker"
+              sizes="(max-width: 768px) 50vw, (max-width: 1280px) 25vw,"
               fill
             />
 
@@ -141,7 +142,9 @@ export default function HomePage() {
             className="rounded-md object-cover"
             src="https://images.pexels.com/photos/5521702/pexels-photo-5521702.jpeg?auto=compress&cs=tinysrgb&w=19200"
             alt="Filmmaker"
+            sizes="100vw"
             fill
+            loading="eager"
           />
 
           <div className="absolute inset-0 bg-black/90" />
