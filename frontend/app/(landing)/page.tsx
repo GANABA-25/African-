@@ -1,5 +1,5 @@
 import Header from "@/app/(landing)/components/header";
-import MovieCard from "@/components/movieCard";
+import MovieCard from "@/app/(landing)/components/movieCard";
 import GenreCard from "@/components/genreCard";
 import { featuredMovies, categories } from "@/data/movie";
 import WhyAfrican from "@/app/(landing)/components/whyAfrican+";
