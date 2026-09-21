@@ -8,7 +8,7 @@ interface MovieCardProps {
 
 export default function AsideCard({ data, index }: MovieCardProps) {
   return (
-    <div className="group relative flex h-25 w-full overflow-hidden rounded-xl border border-white/10 cursor-pointer">
+    <div className="group relative flex h-25 w-full overflow-hidden rounded-xl border border-white/10 shadow-white/5 shadow-sm cursor-pointer">
       <div className="absolute left-7  -top-4 z-20 h-28 w-1 rotate-40 bg-primary/10 group-hover:bg-primary/50" />
       <div className="absolute left-11 -top-4 z-20 h-25 w-1 rotate-40 bg-primary/10 group-hover:bg-primary/50" />
       <div className="absolute left-15 -top-4 z-20 h-22 w-1 rotate-40 bg-primary/10 group-hover:bg-primary/50" />
@@ -35,8 +35,6 @@ export default function AsideCard({ data, index }: MovieCardProps) {
                 {data.episodes} EP
               </span>
             )}
-
-            {data.title && <span className="text-gray-400">{data.title}</span>}
           </div>
         </div>
 

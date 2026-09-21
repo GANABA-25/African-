@@ -3,7 +3,7 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import Slider from "react-slick";
 import MovieCard from "./movieCard";
-import { movies } from "@/data/movie";
+import { continueWatchingMovies } from "@/data/movie";
 
 export interface ContinueWatchingRef {
   next: () => void;
@@ -63,7 +63,7 @@ const ContinueWatching = forwardRef<ContinueWatchingRef>((_, ref) => {
 
   return (
     <Slider ref={sliderRef} {...settings}>
-      {movies.map((movie) => (
+      {continueWatchingMovies.map((movie) => (
         <div key={movie.id} className="pr-4">
           <MovieCard data={movie} />
         </div>

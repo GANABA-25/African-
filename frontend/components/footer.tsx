@@ -1,90 +1,57 @@
-import { AiOutlineYoutube } from "react-icons/ai";
-import { FaInstagram } from "react-icons/fa";
-import { FiTwitter } from "react-icons/fi";
 import { Plus } from "lucide-react";
 
-const socialLinks = [
-  {
-    name: "YouTube",
-    icon: AiOutlineYoutube,
-  },
-  {
-    name: "Instagram",
-    icon: FaInstagram,
-  },
-  {
-    name: "Twitter",
-    icon: FiTwitter,
-  },
-];
-
-const footerSections = [
-  {
-    title: "Platform",
-    links: ["Movies", "Genres", "Pricing", "About"],
-  },
-  {
-    title: "For Filmmakers",
-    links: ["Become a Filmmaker", "Creator Dashboard", "Resources"],
-  },
-  {
-    title: "Support",
-    links: ["Help Center", "Contact", "Privacy", "Terms"],
-  },
-];
-
-export default function Footer() {
+export default function HomeFooter() {
   return (
     <>
-      <div className="max-w-7xl mx-auto py-20 px-4 lg:px-0">
-        <div className="max-[767px]:flex-col md:flex space-y-8 lg:space-y-0 justify-between items-center">
-          <div className="space-y-2">
-            <div className="flex items-center gap-1">
-              <h1 className="text-2xl font-black">African</h1>
+      <div className="max-w-[110rem] m-auto ">
+        <div className="space-y-4 py-20">
+          <span className="flex items-end gap-4">
+            <h1 className="text-2xl font-black">A-Z </h1>
+            <p className="text-sm text-gray-500">
+              Searching anime order by alphabet name A to Z.
+            </p>
+          </span>
 
-              <Plus size={15} color="#f8bf4b" strokeWidth={5} />
-            </div>
+          <div className="flex items-center gap-4">
+            <h1 className="bg-white/10 p-2 px-4 rounded-md text-sm hover:bg-primary cursor-pointer">
+              All
+            </h1>
 
-            <p className="text-sm text-gray-500">The home of African cinema.</p>
+            <ul className="flex items-center gap-4">
+              <li className="bg-white/10 p-2 px-4 rounded-md text-sm hover:bg-primary cursor-pointer">
+                0-9
+              </li>
 
-            <div className="flex gap-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-
-                return (
-                  <div
-                    key={social.name}
-                    className="group cursor-pointer rounded-md bg-primary/20 p-1 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-110 hover:bg-primary/30 hover:text-primary hover:shadow-[0_6px_20px_rgba(248,191,75,0.15)]"
+              <ul className="flex gap-2">
+                {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((letter) => (
+                  <li
+                    className="text-sm bg-white/10 p-2 px-4 rounded-md hover:bg-primary cursor-pointer"
+                    key={letter}
                   >
-                    <Icon
-                      size={15}
-                      className="transition-transform duration-300 group-hover:scale-110"
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {footerSections.map((section) => (
-            <div key={section.title} className="space-y-4">
-              <h1 className="font-bold">{section.title}</h1>
-
-              <ul className="space-y-2 text-sm text-gray-500">
-                {section.links.map((link) => (
-                  <li key={link} className="hover:text-primary cursor-pointer">
-                    {link}
+                    <button>{letter}</button>
                   </li>
                 ))}
               </ul>
-            </div>
-          ))}
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div className="max-w-7xl  mx-auto flex justify-between items-center text-xs text-gray-500 border-y border-gray-100/10 p-4">
-        <p>© 2026 African+. All rights reserved.</p>
-        <p>Africa, on screen.</p>
+      <div className="border-t border-white/10 pt-8 pb-20">
+        <div className="max-w-[110rem] m-auto flex justify-between items-center">
+          <span className="space-y-1">
+            <h1>Copyright ©AnimeKai. All Rights Reserved</h1>
+            <p className="text-gray-500">
+              This site does not store any files on its server. All contents are
+              provided by non-affiliated third parties
+            </p>
+          </span>
+
+          <div className="flex items-center gap-1">
+            <h1 className="text-2xl font-black">African</h1>
+            <Plus size={15} color="#f8bf4b" strokeWidth={7} />
+          </div>
+        </div>
       </div>
     </>
   );

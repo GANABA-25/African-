@@ -3,13 +3,20 @@
 import HeroSlider from "@/components/heroSlider";
 import { Trophy } from "lucide-react";
 import AsideCard from "@/components/asideCard";
-import { trendingMovies, movies } from "@/data/movie";
+import {
+  trendingMovies,
+  movies,
+  newReleases,
+  upcoming,
+  completed,
+} from "@/data/movie";
 import MovieCard from "@/components/movieCard";
 import { useRef } from "react";
 import ContinueWatching, {
   ContinueWatchingRef,
 } from "@/components/continueWatching";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
+import MovieListCard from "@/components/movieListCard";
 
 export default function HomePage() {
   const continueWatchingRef = useRef<ContinueWatchingRef>(null);
@@ -74,6 +81,46 @@ export default function HomePage() {
                   {movies.map((movie) => (
                     <MovieCard key={movie.id} data={movie} />
                   ))}
+                </div>
+              </section>
+
+              <section className="grid grid-cols-3 gap-4">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h1 className="font-bold">New Releases</h1>
+                    <ArrowUpRight size={18} />
+                  </div>
+
+                  <div className="grid gap-4 bg-[#181d22] p-4 rounded-2xl">
+                    {newReleases.map((movie) => (
+                      <MovieListCard key={movie.id} data={movie} />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <h1>Upcoming</h1>
+                    <ArrowUpRight />
+                  </div>
+
+                  <div className="grid gap-4 bg-[#181d22] p-4 rounded-2xl">
+                    {upcoming.map((movie) => (
+                      <MovieListCard key={movie.id} data={movie} />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <h1>Completed</h1>
+                    <ArrowUpRight />
+                  </div>
+                  <div className="grid gap-4 bg-[#181d22] p-4 rounded-2xl">
+                    {completed.map((movie) => (
+                      <MovieListCard key={movie.id} data={movie} />
+                    ))}
+                  </div>
                 </div>
               </section>
             </main>

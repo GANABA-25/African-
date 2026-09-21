@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Footer from "@/app/(landing)/components/footer";
+import HomeFooter from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "African+",
-  description: "landing page",
+  description: "Home page",
 };
 
 export default function LandingLayout({
@@ -14,7 +14,7 @@ export default function LandingLayout({
   return (
     <div>
       {children}
-      <Footer />
+      <HomeFooter />
     </div>
   );
 }
