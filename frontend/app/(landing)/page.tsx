@@ -23,7 +23,7 @@ export default function HomePage() {
           {featuredMovies.map((movie) => (
             <MovieCard
               key={movie.title}
-              poster={movie.poster}
+              image={movie.image}
               title={movie.title}
               genre={movie.genre}
               year={movie.year}

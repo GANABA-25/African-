@@ -1,19 +1,26 @@
 import Image from "next/image";
 import { Star, Play } from "lucide-react";
-import { Movie } from "@/data/movie";
+
+type MovieTypes = {
+  image: string;
+  title: string;
+  genre: string;
+  year: string;
+  rating: string;
+};
 
 export default function MovieCard({
-  poster,
+  image,
   title,
   genre,
   year,
   rating,
-}: Movie) {
+}: MovieTypes) {
   return (
     <div className="group relative h-80 overflow-hidden rounded-xl cursor-pointer shadow-sm">
       <Image
         className="object-cover transition-transform duration-500 group-hover:scale-105"
-        src={poster}
+        src={image}
         alt={title}
         sizes="(max-width: 768px) 50vw, (max-width: 1280px) 25vw,"
         fill

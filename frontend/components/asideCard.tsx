@@ -1,24 +1,12 @@
 import Image from "next/image";
+import { Movie } from "@/data/movie";
 
-interface AsideCardProps {
-  rank: number;
-  title: string;
-  image: string;
-  subtitle?: string;
-  cc?: string;
-  rating?: string;
-  type?: string;
+interface MovieCardProps {
+  data: Movie;
+  index: number;
 }
 
-export default function AsideCard({
-  rank,
-  title,
-  image,
-  subtitle,
-  cc = "CC 11",
-  rating = "10",
-  type = "TV",
-}: AsideCardProps) {
+export default function AsideCard({ data, index }: MovieCardProps) {
   return (
     <div className="group relative flex h-25 w-full overflow-hidden rounded-xl border border-white/10 cursor-pointer">
       <div className="absolute left-7  -top-4 z-20 h-28 w-1 rotate-40 bg-primary/10 group-hover:bg-primary/50" />
@@ -29,31 +17,33 @@ export default function AsideCard({
 
       <div className="relative z-20 flex w-full items-center gap-4">
         <div className="ml-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-500/70 text-sm font-semibold text-white group-hover:border-0 group-hover:bg-primary">
-          {rank}
+          {index}
         </div>
 
         <div className="min-w-0 flex-1 z-30">
-          <h1 className="truncate text-base font-bold text-white">{title}</h1>
+          <h1 className="truncate text-base font-bold text-white">
+            {data.title}
+          </h1>
 
           <div className="mt-2 flex flex-wrap items-center gap-2 text-[11px] font-semibold">
-            <span className="rounded-md border border-primary-light bg-primary/10 px-2 py-1 text-primary">
-              {cc}
-            </span>
+            <div className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-black/60 px-2.5 py-1.5 text-xs font-semibold text-white backdrop-blur-md">
+              <span>{data.type}</span>
+            </div>
 
-            <span className="rounded-md bg-green-500/15 px-2 py-1 text-green-400">
-              {rating}
-            </span>
+            {data.type === "Series" && (
+              <span className="rounded-md bg-green-500/15 px-2 py-1 text-green-400">
+                {data.episodes} EP
+              </span>
+            )}
 
-            <span className="text-gray-300">{type}</span>
-
-            {subtitle && <span className="text-gray-400">{subtitle}</span>}
+            {data.title && <span className="text-gray-400">{data.title}</span>}
           </div>
         </div>
 
         <div className="relative h-full w-32 shrink-0 overflow-hidden">
           <Image
-            src={image}
-            alt={title}
+            src={data.image}
+            alt={data.title}
             fill
             sizes="128px"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
