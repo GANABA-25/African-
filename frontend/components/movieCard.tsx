@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Play, Star } from "lucide-react";
 import { Movie } from "@/data/movie";
+import Link from "next/link";
 
 interface MovieCardProps {
   data: Movie;
@@ -8,7 +9,10 @@ interface MovieCardProps {
 
 export default function MovieCard({ data }: MovieCardProps) {
   return (
-    <div className="group overflow-hidden rounded-xl border border-white/5 bg-surface shadow-white/5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_12px_35px_rgba(0,0,0,0.35)] ">
+    <Link
+      href="/watch"
+      className="group overflow-hidden rounded-xl border border-white/5 bg-surface shadow-white/5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_12px_35px_rgba(0,0,0,0.35)] "
+    >
       <div className="relative h-80 w-full cursor-pointer overflow-hidden bg-[#151515]">
         <Image
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -47,6 +51,6 @@ export default function MovieCard({ data }: MovieCardProps) {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
