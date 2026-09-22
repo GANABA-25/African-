@@ -1,6 +1,26 @@
 import NavBar from "@/components/navbar";
 import Image from "next/image";
-import { Star } from "lucide-react";
+import {
+  Star,
+  Hash,
+  MicVocal,
+  Logs,
+  ArrowLeft,
+  ArrowRight,
+  ChevronDown,
+  House,
+  Maximize,
+  Moon,
+  Play,
+  CirclePlay,
+  ArrowBigLeftDash,
+  ArrowBigRightDash,
+  Bug,
+  Volume2,
+  Captions,
+  Settings,
+  PictureInPicture2,
+} from "lucide-react";
 
 export default function Watch() {
   return (
@@ -19,7 +39,7 @@ export default function Watch() {
 
         <div className="absolute inset-0 bg-black/55" />
 
-        <div className="relative z-20 mx-auto mt-30 h-[calc(100%-120px)] w-full max-w-[110rem] px-4">
+        <div className="relative z-20 mx-auto mt-30 h-[calc(100%-120px)] w-full max-w-[110rem]">
           <div className="grid h-full min-h-0 grid-cols-10 gap-4">
             <section className="col-span-2 flex h-205 min-h-0 flex-col overflow-hidden rounded-2xl bg-[#11161b]/95">
               <div className="relative h-50 w-full shrink-0 overflow-hidden rounded-t-2xl">
@@ -130,12 +150,186 @@ export default function Watch() {
               </div>
             </section>
 
-            <section className="col-span-6 h-205 min-h-0 overflow-hidden rounded-2xl bg-[#11161b]/95 p-4">
-              Center
+            <section className="col-span-6 flex h-205 min-h-0 flex-col overflow-hidden rounded-2xl bg-[#11161b]/95">
+              <div className="flex shrink-0 min-w-0 items-center gap-2 bg-white/5 px-4 py-3 text-xs">
+                <div className="flex shrink-0 items-center gap-1.5 text-gray-300 transition-colors hover:text-white">
+                  <House size={13} />
+                  <span>Home</span>
+                </div>
+
+                <span className="text-gray-600">/</span>
+
+                <span className="shrink-0 text-gray-400">TV</span>
+
+                <span className="text-gray-600">/</span>
+
+                <h1 className="min-w-0 truncate text-gray-500">
+                  Re:ZERO -Starting Life in Another World-
+                </h1>
+              </div>
+
+              <div className="group relative min-h-0 flex-1 overflow-hidden bg-black">
+                <video
+                  className="h-full w-full object-cover"
+                  src="/video/battleThoughTheHeavens.mp4"
+                  playsInline
+                />
+
+                <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/90 via-black/60 to-transparent px-4 pb-3 pt-12 opacity-100">
+                  <div className="mb-3 h-1 w-full cursor-pointer rounded-full bg-white/30">
+                    <div className="relative h-full w-[72%] rounded-full bg-cyan-400">
+                      <div className="absolute right-0 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-cyan-400" />
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3 text-white">
+                      <button className="flex items-center justify-center transition hover:text-gray-300">
+                        <Play size={20} fill="currentColor" />
+                      </button>
+
+                      <button className="flex items-center justify-center transition hover:text-gray-300">
+                        <Volume2 size={20} />
+                      </button>
+
+                      <span className="flex items-center text-xs font-medium text-white">
+                        <span>15:06</span>
+                        <span className="mx-1 text-gray-400">/</span>
+                        <span className="text-gray-300">17:16</span>
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-4 text-white">
+                      <button className="transition hover:text-gray-300">
+                        <Captions size={18} />
+                      </button>
+
+                      <button className="transition hover:text-gray-300">
+                        <Settings size={18} />
+                      </button>
+
+                      <button className="transition hover:text-gray-300">
+                        <PictureInPicture2 size={18} />
+                      </button>
+
+                      <button className="transition hover:text-gray-300">
+                        <Maximize size={19} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex shrink-0 items-center justify-between border-t border-white/5 bg-white/5 px-4 py-3">
+                <button className="flex items-center gap-1.5 text-gray-400 transition-colors hover:text-white">
+                  <Maximize size={15} />
+                  <span className="text-sm">Expand</span>
+                </button>
+
+                <button className="flex items-center gap-1.5 text-gray-400 transition-colors hover:text-white">
+                  <Moon size={15} />
+                  <span className="text-sm">Focus</span>
+                </button>
+
+                <button className="flex items-center gap-1.5 text-gray-400 transition-colors hover:text-white">
+                  <span className="flex items-center">
+                    <Play size={15} color="#f8bf4b" fill="#f8bf4b" />
+                    <Play size={15} color="#f8bf4b" fill="#f8bf4b" />
+                  </span>
+                  <span className="text-sm">AutoNext</span>
+                </button>
+
+                <button className="flex items-center gap-1.5 text-gray-400 transition-colors hover:text-white">
+                  <CirclePlay size={15} color="#f8bf4b" />
+                  <span className="text-sm">AutoPlay</span>
+                </button>
+
+                <button className="flex items-center gap-1.5 text-gray-400 transition-colors hover:text-white">
+                  <ArrowBigLeftDash size={15} />
+                  <span className="text-sm">Prev</span>
+                </button>
+
+                <button className="flex items-center gap-1.5 text-gray-400 transition-colors hover:text-white">
+                  <ArrowBigRightDash size={15} />
+                  <span className="text-sm">Next</span>
+                </button>
+
+                <button className="flex items-center gap-1.5 text-gray-400 transition-colors hover:text-white">
+                  <Bug size={15} />
+                  <span className="text-sm">Report</span>
+                </button>
+              </div>
+
+              <div className="shrink-0 space-y-1 border-t border-white/5 px-4 py-3">
+                <h1 className="text-sm font-medium text-white">
+                  You are watching{" "}
+                  <span className="text-sm text-gray-500">
+                    Episode 25 — Episode 25
+                  </span>
+                </h1>
+
+                <p className="text-xs text-gray-500">
+                  If the current server is not working, please try switching to
+                  other servers.
+                </p>
+              </div>
             </section>
 
-            <section className="col-span-2 h-205 min-h-0 overflow-hidden rounded-2xl bg-[#11161b]/95 p-4">
-              Right
+            <section className="col-span-2 flex h-205 min-h-0 flex-col overflow-hidden rounded-2xl bg-[#11161b]/95 p-4">
+              <div className="flex min-h-0 flex-1 flex-col gap-4">
+                <div className="flex shrink-0 items-center justify-between">
+                  <h1 className="text-sm font-semibold text-white">Episodes</h1>
+
+                  <div className="flex items-center gap-1.5">
+                    <div className="relative">
+                      <input
+                        className="h-8 w-20 rounded-md border border-white/10 bg-[#20272e] pl-7 pr-2 text-xs text-white placeholder:text-gray-500 focus:outline-none"
+                        placeholder="Find"
+                        type="text"
+                      />
+
+                      <Hash
+                        size={13}
+                        className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400"
+                      />
+                    </div>
+
+                    <div className="flex h-8 items-center gap-1.5 rounded-md bg-[#20272e] px-2.5">
+                      <span className="text-xs font-medium text-primary">
+                        CC
+                      </span>
+                      <MicVocal size={13} className="text-green-500" />
+                    </div>
+
+                    <button className="flex h-8 w-8 items-center justify-center rounded-md bg-[#20272e] transition-colors hover:bg-[#2a323a]">
+                      <Logs size={14} className="text-white" />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex shrink-0 items-center justify-between rounded-md bg-[#20272e] p-1 px-3 text-gray-500">
+                  <ArrowLeft size={15} />
+
+                  <span className="flex items-center gap-2">
+                    <p className="text-sm font-bold text-gray-300">001 - 025</p>
+                    <ChevronDown size={18} />
+                  </span>
+
+                  <ArrowRight size={15} />
+                </div>
+
+                <div className="scrollbar-yellow min-h-0 flex-1 space-y-2 overflow-y-auto pr-1">
+                  {Array.from({ length: 25 }, (_, index) => (
+                    <div
+                      key={index}
+                      className="flex shrink-0 items-center gap-2 rounded-md border border-[#1a1e22] px-2 py-1 text-sm transition-colors hover:bg-primary cursor-pointer"
+                    >
+                      <span className="w-5 text-gray-500">{index + 1}</span>
+                      <p>Episode {index + 1}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </section>
           </div>
         </div>
