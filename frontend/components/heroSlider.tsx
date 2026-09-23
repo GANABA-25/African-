@@ -39,8 +39,8 @@ export default function HeroSlider() {
       <Slider ref={sliderRef} {...settings}>
         {movies.map((movie) => (
           <div key={movie.id}>
-            <div className="relative h-200 w-full overflow-hidden">
-              <div className="absolute left-0 right-0 top-0 z-50">
+            <div className="relative h-200 w-full overflow-hidden px-4 md:px-4">
+              <div className="absolute left-0 right-0 top-0 z-50 px-4 md:px-4">
                 <NavBar />
               </div>
 
@@ -53,7 +53,7 @@ export default function HeroSlider() {
 
               <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/60 to-background" />
 
-              <div className="relative z-10 mx-auto mt-30 flex h-full w-full max-w-[110rem] items-center justify-between">
+              <div className="relative z-10 mx-auto lg:mt-30 flex h-full w-full max-w-[110rem] items-center justify-between">
                 <div className="w-full max-w-2xl space-y-6">
                   <h1 className="text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
                     {movie.title}

@@ -43,12 +43,12 @@ export default function MovieCard({ data }: MovieCardProps) {
         </h1>
 
         <div className="flex items-center gap-2 text-xs text-gray-400">
-          <span>{data.genre}</span>
-          <span className="text-gray-600">•</span>
-          <span>{data.year}</span>
-          <span className="rounded-md border border-white/10 bg-white/5 px-1.5 py-0.5 text-[10px] font-medium text-gray-300">
+          <h1>{data.genre}</h1>
+
+          <h1>{data.year}</h1>
+          <h1 className="rounded-md border border-white/10 bg-white/5 px-1.5 py-0.5 text-[10px] font-medium text-gray-300">
             {data.quality}
-          </span>
+          </h1>
         </div>
       </div>
     </Link>

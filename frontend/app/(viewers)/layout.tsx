@@ -14,7 +14,7 @@ export default function LandingLayout({
   return (
     <div>
       {children}
-      <HomeFooter />
+      {/* <HomeFooter /> */}
     </div>
   );
 }

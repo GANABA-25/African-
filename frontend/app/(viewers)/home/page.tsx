@@ -25,25 +25,25 @@ export default function HomePage() {
       <main>
         <HeroSlider />
         <section className="w-full">
-          <div className="mx-auto flex w-full max-w-[110rem] gap-8 px-6 lg:px-0">
+          <div className="mx-auto flex w-full max-w-[110rem] gap-8 px-2 lg:px-0">
             <main className="min-w-0 space-y-8 flex-1 rounded-2xl bg-[#11161b] shadow-sm p-4">
               <section className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <h1 className="text-xl font-bold  uppercase">
+                  <h1 className="md:text-xl font-bold  uppercase">
                     Continue Watching
                   </h1>
 
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => continueWatchingRef.current?.previous()}
-                      className="flex h-5 w-5 items-center justify-center rounded-full bg-white transition-colors hover:bg-primary hover:text-black cursor-pointer"
+                      className="flex w-4 h-4 md:h-5 md:w-5 items-center justify-center rounded-full bg-white transition-colors hover:bg-primary hover:text-black cursor-pointer"
                     >
                       <ChevronLeft size={15} color="black" />
                     </button>
 
                     <button
                       onClick={() => continueWatchingRef.current?.next()}
-                      className="flex h-5 w-5 items-center justify-center rounded-full bg-white transition-colors hover:bg-primary hover:text-black cursor-pointer"
+                      className="flex w-4 h-4 md:h-5 md:w-5 items-center justify-center rounded-full bg-white transition-colors hover:bg-primary hover:text-black cursor-pointer"
                     >
                       <ChevronRight size={15} color="black" />
                     </button>
@@ -54,8 +54,8 @@ export default function HomePage() {
               </section>
 
               <section className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <h1 className="text-xl font-bold  uppercase">
+                <div className="max-[767px]:flex-col md:flex justify-between items-center">
+                  <h1 className="md:text-xl font-bold  uppercase">
                     Latest Updates
                   </h1>
 
@@ -77,14 +77,14 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-                <div className="grid grid-cols-5 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
                   {movies.map((movie) => (
                     <MovieCard key={movie.id} data={movie} />
                   ))}
                 </div>
               </section>
 
-              <section className="grid grid-cols-3 gap-4">
+              <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <h1 className="font-bold">New Releases</h1>
@@ -125,7 +125,7 @@ export default function HomePage() {
               </section>
             </main>
 
-            <aside className="w-100 shrink-0 rounded-2xl bg-[#11161b] shadow-sm p-4 space-y-4">
+            <aside className="w-100 shrink-0 rounded-2xl bg-[#11161b] shadow-sm p-4 space-y-4 hidden lg:block">
               <div className="flex items-center gap-2">
                 <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary">
                   <Trophy size={12} />
