@@ -9,7 +9,7 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-/frontend/public/video/*.mp4
+/frontend/public/video/
 
 # testing
 /coverage
@@ -40,3 +40,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+*.mp4
