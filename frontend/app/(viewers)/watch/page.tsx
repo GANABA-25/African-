@@ -15,12 +15,12 @@ import { trendingMovies } from "@/data/movie";
 export default function Watch() {
   return (
     <>
-      <section className="relative h-240 w-full overflow-hidden">
-        <div className="absolute left-0 right-0 top-0 z-50">
+      <section className="relative min-h-screen w-full overflow-hidden bg-background lg:h-250">
+        <div className="absolute left-0 right-0 top-0 z-50 px-4 lg:px-0">
           <NavBar />
         </div>
 
-        <div className="relative h-240 w-full overflow-hidden">
+        <div className="relative min-h-screen w-full overflow-hidden lg:h-250">
           <div
             className="absolute inset-0 scale-105 bg-cover bg-center bg-no-repeat blur-lg"
             style={{
@@ -30,9 +30,9 @@ export default function Watch() {
 
           <div className="absolute inset-0 bg-black/55" />
 
-          <div className="relative z-20 mx-auto mt-30 h-[calc(100%-120px)] w-full max-w-[110rem]">
-            <div className="grid h-full min-h-0 grid-cols-10 gap-4">
-              <section className="col-span-2 flex h-205 min-h-0 flex-col overflow-hidden rounded-2xl bg-[#11161b]/95">
+          <div className="relative z-20 m-auto w-[95%] px-4 pb-8 pt-30 lg:h-full lg:px-0">
+            <div className="flex min-h-0 flex-col gap-4 lg:grid lg:h-full lg:grid-cols-10">
+              <section className="order-3 col-span-2 flex min-h-0 flex-col overflow-hidden rounded-2xl bg-[#11161b]/95 md:order-2 lg:order-1 lg:h-full">
                 <MoviePoster />
 
                 <MovieInformation />
@@ -40,7 +40,7 @@ export default function Watch() {
                 <MovieRating />
               </section>
 
-              <section className="col-span-6 flex h-205 min-h-0 flex-col overflow-hidden rounded-2xl bg-[#11161b]/95">
+              <section className="order-1 col-span-6 flex min-h-0 flex-col overflow-hidden rounded-2xl bg-[#11161b]/95 md:order-1 lg:order-2 lg:h-full">
                 <WatchBreadcrumb />
 
                 <VideoPlayer />
@@ -62,7 +62,7 @@ export default function Watch() {
                 </div>
               </section>
 
-              <section className="col-span-2 flex h-205 min-h-0 flex-col overflow-hidden rounded-2xl bg-[#11161b]/95 p-4">
+              <section className="order-2 col-span-2 flex min-h-105 flex-col overflow-hidden rounded-2xl bg-[#11161b]/95 p-4 md:order-3 lg:order-3 lg:h-full lg:min-h-0">
                 <div className="flex min-h-0 flex-1 flex-col gap-4">
                   <EpisodeHeader />
 
@@ -79,17 +79,17 @@ export default function Watch() {
       </section>
 
       <section className="py-10 px-4 lg:px-0 bg-[#0c1116]">
-        <div className="max-w-[110rem] mx-auto">
+        <div className="w-[95%] m-auto">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-black text-white">Comments</h1>
+              <h1 className="md:text-2xl font-black text-white">Comments</h1>
               <p className="mt-1 text-sm text-gray-500">
                 Join the conversation and share your thoughts.
               </p>
             </div>
           </div>
 
-          <div className="grid min-h-0 grid-cols-10 gap-6">
+          <div className="space-y-4 lg:grid min-h-0 grid-cols-10 gap-6">
             <Comments />
 
             <aside className="col-span-2 min-w-0">

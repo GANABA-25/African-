@@ -27,8 +27,8 @@ const Comments = () => {
         </div>
       </div>
 
-      <div className="flex gap-3">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#252c33] text-gray-400">
+      <div className="flex gap-2">
+        <div className="hidden md:flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#252c33] text-gray-400">
           <UserRound size={19} />
         </div>
 
@@ -42,12 +42,7 @@ const Comments = () => {
           />
 
           <div className="flex items-center justify-between border-t border-[#272d33] bg-[#12171c] px-2 py-2">
-            <div className="flex items-center gap-1">
-              <VideoControlButton
-                label="Bold"
-                icon={<PictureInPicture2 size={15} color="gray" />}
-              />
-
+            <div className="flex items-center md:gap-1">
               <VideoControlButton
                 label="Quote"
                 icon={<Quote size={15} color="gray" />}

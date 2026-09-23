@@ -3,7 +3,7 @@ import Input from "./input";
 
 export default function NavBar() {
   return (
-    <div className="max-w-[110rem] mx-auto flex justify-between items-center bg-black/60 p-2 px-4 m-4 rounded-xl">
+    <div className="w-[95%] mx-auto flex justify-between items-center bg-black/60 p-2 px-4 m-4 rounded-xl">
       <div className="flex items-center gap-2">
         <Menu size={20} className="lg:hidden" />
         <div className="flex items-center gap-1">

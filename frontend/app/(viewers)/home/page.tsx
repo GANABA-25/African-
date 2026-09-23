@@ -25,7 +25,7 @@ export default function HomePage() {
       <main>
         <HeroSlider />
         <section className="w-full">
-          <div className="mx-auto flex w-full max-w-[110rem] gap-8 px-2 lg:px-0">
+          <div className="flex w-[95%] mx-auto m-auto gap-8 px-2 lg:px-0">
             <main className="min-w-0 space-y-8 flex-1 rounded-2xl bg-[#11161b] shadow-sm p-4">
               <section className="space-y-4">
                 <div className="flex justify-between items-center">
