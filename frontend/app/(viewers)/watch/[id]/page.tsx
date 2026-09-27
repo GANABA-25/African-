@@ -10,9 +10,20 @@ import EpisodePagination from "@/components/watchPage/episodeList/episodePaginat
 import EpisodeItem from "@/components/watchPage/episodeList/episodeItem";
 import Comments from "@/components/watchPage/comments/comments";
 import AsideCard from "@/components/asideCard";
-import { trendingMovies } from "@/data/movie";
+import { movies, trendingMovies } from "@/data/movie";
+import PopOver from "@/components/popOver";
 
-export default function Watch() {
+type WatchPageProps = {
+  params: Promise<{
+    id: string;
+  }>;
+};
+
+export default async function Watch({ params }: WatchPageProps) {
+  const { id } = await params;
+
+  const movie = movies.find((movie) => movie.id === Number(id));
+
   return (
     <>
       <section className="relative min-h-screen w-full overflow-hidden bg-background lg:h-250">
@@ -33,9 +44,9 @@ export default function Watch() {
           <div className="relative z-20 m-auto w-[95%] px-4 pb-8 pt-30 lg:h-full lg:px-0">
             <div className="flex min-h-0 flex-col gap-4 lg:grid lg:h-full lg:grid-cols-10">
               <section className="order-3 col-span-2 flex min-h-0 flex-col overflow-hidden rounded-2xl bg-[#11161b]/95 md:order-2 lg:order-1 lg:h-full">
-                <MoviePoster />
+                <MoviePoster image={movie?.image} />
 
-                <MovieInformation />
+                <MovieInformation movie={movie} />
 
                 <MovieRating />
               </section>
@@ -87,6 +98,26 @@ export default function Watch() {
                 Join the conversation and share your thoughts.
               </p>
             </div>
+
+            {/* <PopOver trigger={<button>Open</button>}>
+              <div className="bg-red-600 p-4">
+                <h1>Your content here</h1>
+                <h1>Your content here</h1>
+                <h1>Your content here</h1>
+                <h1>Your content here</h1>
+                <h1>Your content here</h1>
+                <h1>Your content here</h1>
+                <h1>Your content here</h1>
+                <h1>Your content here</h1>
+                <h1>Your content here</h1>
+                <h1>Your content here</h1>
+                <h1>Your content here</h1>
+                <h1>Your content here</h1>
+                <h1>Your content here</h1>
+                <h1>Your content here</h1>
+                <h1>Your content here</h1>
+              </div>
+            </PopOver> */}
           </div>
 
           <div className="space-y-4 lg:grid min-h-0 grid-cols-10 gap-6">

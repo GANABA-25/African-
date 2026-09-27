@@ -12,6 +12,8 @@ import {
 import VideoProgress from "./videoProgress";
 import VideoControlButton from "@/components/videoControlButton";
 import VolumeControl from "./volumeControl";
+import PopOver from "@/components/popOver";
+import VideoSettings from "./videoSettings";
 
 type VideoControlsProps = {
   isPlaying: boolean;
@@ -125,7 +127,7 @@ export default function VideoControls({
         <div className="flex items-center gap-4 text-white">
           <VideoControlButton label="Captions" icon={<Captions size={18} />} />
 
-          <VideoControlButton label="Settings" icon={<Settings size={18} />} />
+          <VideoSettings />
 
           <VideoControlButton
             label="Picture in Picture"

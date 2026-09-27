@@ -10,7 +10,7 @@ interface MovieCardProps {
 export default function MovieCard({ data }: MovieCardProps) {
   return (
     <Link
-      href="/watch"
+      href={`/watch/${data.id}`}
       className="group overflow-hidden rounded-xl border border-white/5 bg-surface shadow-white/5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_12px_35px_rgba(0,0,0,0.35)] "
     >
       <div className="relative h-80 w-full cursor-pointer overflow-hidden bg-[#151515]">

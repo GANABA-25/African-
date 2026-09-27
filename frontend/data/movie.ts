@@ -19,6 +19,11 @@ export interface Movie {
   featured: boolean;
 }
 
+// To be added
+// Date
+// Status
+// Studios
+
 export interface Category {
   name: string;
   count: number;
