@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Button from "@/components/button";
 import { movies } from "@/data/movie";
-import NavBar from "./navbar";
+import NavBar from "./navbar/navbar";
 
 export default function HeroSlider() {
   const sliderRef = useRef<Slider | null>(null);
@@ -48,15 +48,15 @@ export default function HeroSlider() {
               <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{
-                  backgroundImage: `url("${movie.image}")`,
+                  backgroundImage: `url("${movie.banner}")`,
                 }}
               />
 
               <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/60 to-background" />
 
-              <div className="relative z-10 m-auto lg:mt-24 flex h-full w-[95%] items-center justify-between">
+              <div className="relative z-10 m-auto lg:mt-20 flex h-full w-[95%] items-center justify-between">
                 <div className="w-full max-w-2xl space-y-6">
-                  <h1 className="text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
+                  <h1 className="text-4xl font-black leading-tight sm:text-5xl">
                     {movie.title}
                   </h1>
 

@@ -14,6 +14,7 @@ export interface Movie {
   country: string;
   language: string;
   image: string;
+  banner: string;
   director: string;
   producer: string;
   cast: string[];
@@ -21,6 +22,33 @@ export interface Movie {
   episodes?: number;
   featured: boolean;
 }
+
+export const genres = [
+  "Action",
+  "Adventure",
+  "Animation",
+  "Comedy",
+  "Crime",
+  "Documentary",
+  "Drama",
+  "Family",
+  "Fantasy",
+  "Historical",
+  "Horror",
+  "Mystery",
+  "Romance",
+  "Science Fiction",
+  "Thriller",
+  "War",
+  "Western",
+  "Musical",
+  "Biographical",
+  "Religious",
+  "Political",
+  "Folklore",
+  "Cultural",
+  "Coming of Age",
+];
 
 export interface Category {
   name: string;
@@ -654,6 +682,8 @@ export const movies: Movie[] = [
     language: "English · Akan",
     image:
       "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789723595/MV5BODhjNmI4YWItOGRiZC00YjYxLTkyN2YtNTQxZmMzZDVhMzVjXkEyXkFqcGc._V1__oplbgf.jpg",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1790599769/banner_2_ojtjzi.jpg",
     director: "Frank Fiifi Gharbin",
     producer: "Kwadwo Nkansah",
     cast: [
@@ -683,6 +713,8 @@ export const movies: Movie[] = [
     language: "English",
     image:
       "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789892667/An_African_City_fmrqm2.jpg",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1790599768/banner_1_pgap6q.jpg",
     director: "Nicole Amarteifio",
     producer: "Nicole Amarteifio",
     cast: [
@@ -714,6 +746,8 @@ export const movies: Movie[] = [
     language: "Akan · English",
     image:
       "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789891313/The_bural_of_kojo_vnfaqz.jpg",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1790599769/banner_3_fm7vpr.jpg",
     director: "Blitz Bazawule",
     producer: "Blitz Bazawule",
     cast: [
@@ -743,6 +777,8 @@ export const movies: Movie[] = [
     language: "English",
     image:
       "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789892668/Blood_Sisters_t1pwko.png",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1790599769/banner_2_ojtjzi.jpg",
     director: "Biyi Bandele · Kenneth Gyang",
     producer: "Mo Abudu",
     cast: [
@@ -775,6 +811,8 @@ export const movies: Movie[] = [
     language: "English · Akan",
     image:
       "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789891312/Keteke_azvyxp.jpg",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1790599768/banner_1_pgap6q.jpg",
     director: "Peter Sedufia",
     producer: "Peter Sedufia",
     cast: [
@@ -804,6 +842,8 @@ export const movies: Movie[] = [
     language: "English · Yoruba",
     image:
       "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789891313/King_of_Boys_hhjsxv.jpg",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1790599769/banner_3_fm7vpr.jpg",
     director: "Kemi Adetiba",
     producer: "Kemi Adetiba",
     cast: [
@@ -833,6 +873,8 @@ export const movies: Movie[] = [
     language: "English",
     image:
       "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789892667/Far_From_Home_wm8urm.jpg",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789477383/wallpaperflare.com_wallpaper_sv9hg2.jpg",
     director: "Damilola Elebe",
     producer: "Inkblot Productions",
     cast: [
@@ -864,6 +906,8 @@ export const movies: Movie[] = [
     language: "English",
     image:
       "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789891311/Aloevera_f2x1jx.jpg",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1790599769/banner_3_fm7vpr.jpg",
     director: "Peter Sedufia",
     producer: "Peter Sedufia",
     cast: [
@@ -893,6 +937,8 @@ export const movies: Movie[] = [
     language: "English · Zulu · Afrikaans · Swahili",
     image:
       "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789892668/Queen_Sono_elk6yp.jpg",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1790599768/banner_1_pgap6q.jpg",
     director: "Kagiso Lediga · Tebogo Malope",
     producer: "Tamsin Andersson",
     cast: [
@@ -925,6 +971,8 @@ export const movies: Movie[] = [
     language: "English",
     image:
       "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789891311/Gold_Coast_Lounge_s7ccln.webp",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1790599769/banner_3_fm7vpr.jpg",
     director: "Pascal Aka",
     producer: "Pascal Aka",
     cast: [
@@ -954,6 +1002,8 @@ export const movies: Movie[] = [
     language: "Ga",
     image:
       "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789892667/Dede_zxfxiw.jpg",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1790599768/banner_1_pgap6q.jpg",
     director: "Shirley Frimpong-Manso",
     producer: "Akwaaba Magic",
     cast: [
@@ -986,6 +1036,8 @@ export const movies: Movie[] = [
     language: "English",
     image:
       "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789891315/Sidechic_Gang_qorueb.jpg",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789477383/wallpaperflare.com_wallpaper_sv9hg2.jpg",
     director: "Peter Sedufia",
     producer: "Peter Sedufia",
     cast: [
@@ -1002,6 +1054,8 @@ export const movies: Movie[] = [
     title: "Blood & Water",
     description:
       "A teenager transfers to an elite Cape Town school after becoming convinced that one of its students may be her sister who was abducted at birth.",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789477383/wallpaperflare.com_wallpaper_sv9hg2.jpg",
     genre: "Drama · Mystery",
     year: "2020",
     date: "2020-05-20",
@@ -1040,6 +1094,8 @@ export const movies: Movie[] = [
     language: "English",
     image:
       "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789891312/Potato_Potahto_ahdaib.jpg",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1790599769/banner_2_ojtjzi.jpg",
     director: "Shirley Frimpong-Manso",
     producer: "Shirley Frimpong-Manso",
     cast: [
@@ -1069,6 +1125,8 @@ export const movies: Movie[] = [
     language: "English · Yoruba · Igbo · Hausa",
     image:
       "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1789891313/King_of_Boys_hhjsxv.jpg",
+    banner:
+      "https://res.cloudinary.com/dkjlpfa1q/image/upload/v1790599768/banner_1_pgap6q.jpg",
     director: "Kemi Adetiba",
     producer: "Kemi Adetiba · Remi Adetiba · Joy Nnamdi-Yusuf",
     cast: [

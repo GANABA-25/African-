@@ -57,7 +57,7 @@ export default function VideoPlayer() {
       <video
         ref={setVideo}
         onClick={togglePlay}
-        className="h-full w-full object-contain"
+        className="h-full w-full object-cover"
         src="/video/battleThoughTheHeavens.mp4"
         playsInline
         onPlay={() => setIsPlaying(true)}

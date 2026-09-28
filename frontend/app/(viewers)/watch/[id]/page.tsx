@@ -1,4 +1,4 @@
-import NavBar from "@/components/navbar";
+import NavBar from "@/components/navbar/navbar";
 import WatchBreadcrumb from "@/components/watchPage/watchBreadcrumb";
 import VideoPlayer from "@/components/watchPage/videoPlayer/videoPlayer";
 import WatchAction from "@/components/watchPage/videoPlayer/watchActions";
@@ -60,10 +60,10 @@ export default async function Watch({ params }: WatchPageProps) {
 
                 <WatchAction />
 
-                <div className="shrink-0 space-y-1 border-t border-white/5 px-4 py-3">
+                <div className="shrink-0 space-y-4 border-t border-white/5 px-4 py-3">
                   <h1 className="text-sm font-medium text-white">
                     You are watching{" "}
-                    <span className="text-sm text-gray-500">
+                    <span className="text-xs text-gray-500">
                       Episode 25 — Episode 25
                     </span>
                   </h1>

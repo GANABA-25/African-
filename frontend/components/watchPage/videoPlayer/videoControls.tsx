@@ -4,15 +4,14 @@ import { useEffect, useState } from "react";
 import {
   Maximize2,
   Play,
-  Captions,
-  Settings,
   PictureInPicture2,
   Pause,
+  UndoDot,
+  RedoDot,
 } from "lucide-react";
 import VideoProgress from "./videoProgress";
 import VideoControlButton from "@/components/videoControlButton";
 import VolumeControl from "./volumeControl";
-import PopOver from "@/components/popOver";
 import VideoSettings from "./videoSettings";
 
 type VideoControlsProps = {
@@ -125,7 +124,9 @@ export default function VideoControls({
         </div>
 
         <div className="flex items-center gap-4 text-white">
-          <VideoControlButton label="Captions" icon={<Captions size={18} />} />
+          <VideoControlButton label="-10s" icon={<UndoDot size={18} />} />
+
+          <VideoControlButton label="+10s" icon={<RedoDot size={18} />} />
 
           <VideoSettings />
 

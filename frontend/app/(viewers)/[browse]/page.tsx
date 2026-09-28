@@ -1,5 +1,5 @@
 import { movies } from "@/data/movie";
-import NavBar from "@/components/navbar";
+import NavBar from "@/components/navbar/navbar";
 import MovieCard from "@/components/movieCard";
 
 interface BrowsePageProps {
