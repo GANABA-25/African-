@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef } from "react";
 import Slider from "react-slick";
 import { Bookmark, Play, ChevronRight, ChevronLeft } from "lucide-react";
@@ -95,10 +96,12 @@ export default function HeroSlider() {
                   </div>
 
                   <div className="flex w-full max-w-xs items-center gap-3">
-                    <Button>
-                      <Play size={17} fill="black" />
-                      <span className="uppercase">Watch Now</span>
-                    </Button>
+                    <Link href={`/watch/${movie.id}`}>
+                      <Button>
+                        <Play size={17} fill="black" />
+                        <span className="uppercase">Watch Now</span>
+                      </Button>
+                    </Link>
 
                     <button
                       type="button"
