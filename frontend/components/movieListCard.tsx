@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Movie } from "@/data/movie";
+import Link from "next/link";
 
 interface movieListProp {
   data: Movie;
@@ -8,7 +9,10 @@ interface movieListProp {
 
 export default function MovieListCard({ data }: movieListProp) {
   return (
-    <div className="group overflow-hidden rounded-xl border border-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:bg-[#1c2228] hover:shadow-[0_10px_30px_rgba(0,0,0,0.25)] cursor-pointer shadow-white/5 shadow-sm">
+    <Link
+      href={`/watch/${data.id}`}
+      className="group overflow-hidden rounded-xl border border-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:bg-[#1c2228] hover:shadow-[0_10px_30px_rgba(0,0,0,0.25)] cursor-pointer shadow-white/5 shadow-sm"
+    >
       <div className="flex items-center gap-4 p-3">
         <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg">
           <Image
@@ -41,6 +45,6 @@ export default function MovieListCard({ data }: movieListProp) {
           className="shrink-0 text-gray-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
         />
       </div>
-    </div>
+    </Link>
   );
 }

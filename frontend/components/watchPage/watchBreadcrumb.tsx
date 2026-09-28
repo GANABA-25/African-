@@ -1,6 +1,10 @@
 import { House } from "lucide-react";
 
-export default function WatchBreadcrumb() {
+interface WatchBreadcrumbProps {
+  title?: string;
+}
+
+export default function WatchBreadcrumb({ title }: WatchBreadcrumbProps) {
   return (
     <div className="flex shrink-0 min-w-0 items-center gap-2 bg-white/5 px-4 py-3 text-xs">
       <div className="flex shrink-0 items-center gap-1.5 text-gray-300 transition-colors hover:text-white">
@@ -14,9 +18,7 @@ export default function WatchBreadcrumb() {
 
       <span className="text-gray-600">/</span>
 
-      <h1 className="min-w-0 truncate text-gray-500">
-        Re:ZERO -Starting Life in Another World-
-      </h1>
+      <h1 className="min-w-0 truncate text-gray-500">{title}</h1>
     </div>
   );
 }

@@ -5,7 +5,6 @@ interface MoviePosterProps {
 }
 
 export default function MoviePoster({ image }: MoviePosterProps) {
-  console.log("image uri", image);
   return (
     <div className="relative h-50 w-full shrink-0 overflow-hidden rounded-t-2xl">
       <Image

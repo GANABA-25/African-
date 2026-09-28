@@ -51,8 +51,10 @@ export default async function Watch({ params }: WatchPageProps) {
                 <MovieRating />
               </section>
 
-              <section className="order-1 col-span-6 flex min-h-0 flex-col overflow-hidden rounded-2xl bg-[#11161b]/95 md:order-1 lg:order-2 lg:h-full">
-                <WatchBreadcrumb />
+              <section
+                className={`order-1  ${movie?.type === "Series" ? "col-span-6" : "col-span-8"}  flex min-h-0 flex-col overflow-hidden rounded-2xl bg-[#11161b]/95 md:order-1 lg:order-2 lg:h-full`}
+              >
+                <WatchBreadcrumb title={movie?.title} />
 
                 <VideoPlayer />
 
@@ -73,17 +75,19 @@ export default async function Watch({ params }: WatchPageProps) {
                 </div>
               </section>
 
-              <section className="order-2 col-span-2 flex min-h-105 flex-col overflow-hidden rounded-2xl bg-[#11161b]/95 p-4 md:order-3 lg:order-3 lg:h-full lg:min-h-0">
-                <div className="flex min-h-0 flex-1 flex-col gap-4">
-                  <EpisodeHeader />
+              {movie?.type === "Series" && (
+                <section className="order-2 col-span-2 flex min-h-105 flex-col overflow-hidden rounded-2xl bg-[#11161b]/95 p-4 md:order-3 lg:order-3 lg:h-full lg:min-h-0">
+                  <div className="flex min-h-0 flex-1 flex-col gap-4">
+                    <EpisodeHeader />
 
-                  <EpisodePagination />
+                    <EpisodePagination episodes={movie?.episodes} />
 
-                  <div className="scrollbar-yellow min-h-0 flex-1 space-y-2 overflow-y-auto pr-1">
-                    <EpisodeItem />
+                    <div className="scrollbar-yellow min-h-0 flex-1 space-y-2 overflow-y-auto pr-1">
+                      <EpisodeItem episodes={movie?.episodes} />
+                    </div>
                   </div>
-                </div>
-              </section>
+                </section>
+              )}
             </div>
           </div>
         </div>

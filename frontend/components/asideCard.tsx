@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Movie } from "@/data/movie";
+import Link from "next/link";
 
 interface MovieCardProps {
   data: Movie;
@@ -8,7 +9,10 @@ interface MovieCardProps {
 
 export default function AsideCard({ data, index }: MovieCardProps) {
   return (
-    <div className="group relative flex h-25 w-full overflow-hidden rounded-xl border border-white/10 shadow-white/5 shadow-sm cursor-pointer">
+    <Link
+      href={`/watch/${data.id}`}
+      className="group relative flex h-25 w-full overflow-hidden rounded-xl border border-white/10 shadow-white/5 shadow-sm cursor-pointer"
+    >
       <div className="absolute left-7 -top-4 z-20 h-28 w-1 rotate-40 bg-primary/10 group-hover:bg-primary/50" />
       <div className="absolute left-11 -top-4 z-20 h-25 w-1 rotate-40 bg-primary/10 group-hover:bg-primary/50" />
       <div className="absolute left-15 -top-4 z-20 h-22 w-1 rotate-40 bg-primary/10 group-hover:bg-primary/50" />
@@ -53,6 +57,6 @@ export default function AsideCard({ data, index }: MovieCardProps) {
           <div className="absolute inset-y-0 left-0 w-16 bg-linear-to-r from-[#15171b] via-[#15171b]/80 to-transparent" />
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
