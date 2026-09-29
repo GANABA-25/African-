@@ -11,6 +11,8 @@ interface BrowsePageProps {
 export default async function Browse({ searchParams }: BrowsePageProps) {
   const { keyword } = await searchParams;
 
+  console.log(keyword);
+
   const searchTerm = keyword?.trim().toLowerCase() || "";
 
   const filteredMovies = movies.filter((movie) => {

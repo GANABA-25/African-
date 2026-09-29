@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { genres } from "@/data/movie";
 import { useState } from "react";
 import PopOver from "../popOver";
@@ -42,13 +42,14 @@ export default function Genres() {
       >
         <div className="grid grid-cols-4 gap-4 p-4">
           {genres.map((genre) => (
-            <button
+            <Link
+              href={`/browse?keyword=${encodeURIComponent(genre)}`}
               key={genre}
               type="button"
               className="text-left text-xs text-gray-300 cursor-pointer hover:text-primary border-none"
             >
               {genre}
-            </button>
+            </Link>
           ))}
         </div>
       </PopOver>

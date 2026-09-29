@@ -17,7 +17,6 @@ export default function NavBar() {
         <Menu size={20} className="lg:hidden" />
         <div className="flex items-center gap-1">
           <h1 className=" md:text-2xl font-black">African</h1>
-
           <Plus size={15} color="#f8bf4b" strokeWidth={7} />
         </div>
       </Link>
@@ -31,10 +30,13 @@ export default function NavBar() {
 
           {navLinks.map((link) => (
             <li key={link} className="group relative cursor-pointer">
-              <span className="relative inline-block">
+              <Link
+                href={`/browse?keyword=${encodeURIComponent(link)}`}
+                className="relative inline-block"
+              >
                 {link}
                 <span className="absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-primary transition-all duration-300 ease-out group-hover:w-full" />
-              </span>
+              </Link>
             </li>
           ))}
         </ul>
