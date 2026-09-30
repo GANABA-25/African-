@@ -41,15 +41,6 @@ export default function NavBar() {
           ))}
         </ul>
 
-        <div className="hidden lg:flex items-center gap-4 bg-black/70 p-1 rounded-xl">
-          <div className="w-10 h-7 text-sm flex justify-center items-center bg-primary rounded-xl">
-            EN
-          </div>
-          <div className="w-10 h-7 text-sm flex justify-center items-center rounded-xl">
-            JP
-          </div>
-        </div>
-
         <div className="bg-white rounded-full p-1">
           <User size={15} color="#f8bf4b" />
         </div>
