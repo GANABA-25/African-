@@ -102,26 +102,6 @@ export default async function Watch({ params }: WatchPageProps) {
                 Join the conversation and share your thoughts.
               </p>
             </div>
-
-            {/* <PopOver trigger={<button>Open</button>}>
-              <div className="bg-red-600 p-4">
-                <h1>Your content here</h1>
-                <h1>Your content here</h1>
-                <h1>Your content here</h1>
-                <h1>Your content here</h1>
-                <h1>Your content here</h1>
-                <h1>Your content here</h1>
-                <h1>Your content here</h1>
-                <h1>Your content here</h1>
-                <h1>Your content here</h1>
-                <h1>Your content here</h1>
-                <h1>Your content here</h1>
-                <h1>Your content here</h1>
-                <h1>Your content here</h1>
-                <h1>Your content here</h1>
-                <h1>Your content here</h1>
-              </div>
-            </PopOver> */}
           </div>
 
           <div className="space-y-4 lg:grid min-h-0 grid-cols-10 gap-6">

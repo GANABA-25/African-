@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import VideoControls from "./videoControls";
 
 export default function VideoPlayer() {
@@ -10,6 +10,7 @@ export default function VideoPlayer() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const togglePlay = () => {
     if (!video) return;
@@ -67,6 +68,7 @@ export default function VideoPlayer() {
       />
 
       <VideoControls
+        video={video}
         isPlaying={isPlaying}
         currentTime={currentTime}
         duration={duration}

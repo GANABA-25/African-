@@ -15,6 +15,7 @@ import VolumeControl from "./volumeControl";
 import VideoSettings from "./videoSettings";
 
 type VideoControlsProps = {
+  video: HTMLVideoElement | null;
   isPlaying: boolean;
   currentTime: number;
   duration: number;
@@ -27,6 +28,7 @@ type VideoControlsProps = {
 };
 
 export default function VideoControls({
+  video,
   isPlaying,
   currentTime,
   duration,
@@ -39,18 +41,28 @@ export default function VideoControls({
 }: VideoControlsProps) {
   const [isDragging, setIsDragging] = useState(false);
 
-  const progress = duration ? (currentTime / duration) * 100 : 0;
-
   const updateProgress = (clientX: number, element: HTMLDivElement) => {
     if (!duration) return;
 
     const rect = element.getBoundingClientRect();
+
     const position = Math.min(
       1,
       Math.max(0, (clientX - rect.left) / rect.width),
     );
 
     onSeek(position * duration);
+  };
+
+  const handlePictureInPicture = async () => {
+    if (!video) return;
+
+    if (document.pictureInPictureElement) {
+      await document.exitPictureInPicture();
+      return;
+    }
+
+    await video.requestPictureInPicture();
   };
 
   useEffect(() => {
@@ -86,6 +98,14 @@ export default function VideoControls({
     return `${minutes.toString().padStart(2, "0")}:${seconds
       .toString()
       .padStart(2, "0")}`;
+  };
+
+  const skipBackward = () => {
+    onSeek(Math.max(0, currentTime - 10));
+  };
+
+  const skipForward = () => {
+    onSeek(Math.min(duration, currentTime + 10));
   };
 
   return (
@@ -124,20 +144,29 @@ export default function VideoControls({
         </div>
 
         <div className="flex items-center gap-4 text-white">
-          <VideoControlButton label="-10s" icon={<UndoDot size={18} />} />
+          <VideoControlButton
+            label="-10s"
+            onClick={skipBackward}
+            icon={<UndoDot size={18} />}
+          />
 
-          <VideoControlButton label="+10s" icon={<RedoDot size={18} />} />
+          <VideoControlButton
+            label="+10s"
+            onClick={skipForward}
+            icon={<RedoDot size={18} />}
+          />
 
-          <VideoSettings />
+          <VideoSettings video={video} />
 
           <VideoControlButton
             label="Picture in Picture"
+            onClick={handlePictureInPicture}
             icon={<PictureInPicture2 size={18} />}
           />
 
           <VideoControlButton
-            onClick={onFullscreen}
             label="Fullscreen"
+            onClick={onFullscreen}
             icon={<Maximize2 size={18} />}
           />
         </div>

@@ -6,130 +6,96 @@ import VideoControlButton from "@/components/videoControlButton";
 import {
   Settings,
   X,
-  ChartNoAxesColumnIncreasing,
   ClosedCaption,
   ListMinus,
   Volume2,
+  Check,
 } from "lucide-react";
 
 type Setting = "quality" | "captions" | "playback" | "volume";
 
-export default function VideoSettings() {
-  const [activeSetting, setActiveSetting] = useState<Setting>("quality");
+type VideoSettingsProps = {
+  video: HTMLVideoElement | null;
+};
+
+export default function VideoSettings({ video }: VideoSettingsProps) {
+  const [activeSetting, setActiveSetting] = useState<Setting>("captions");
+  const [selectedRate, setSelectedRate] = useState(1);
+  const [volume, setVolume] = useState(100);
+  const [selectedCaption, setSelectedCaption] = useState("off");
+
+  const changePlaybackRate = (rate: number) => {
+    if (!video) return;
+
+    video.playbackRate = rate;
+    setSelectedRate(rate);
+  };
+
+  const changeVolume = (value: number) => {
+    if (!video) return;
+
+    video.volume = value / 100;
+    setVolume(value);
+  };
+
+  const changeCaption = (caption: string) => {
+    if (!video) return;
+
+    const tracks = video.textTracks;
+
+    for (let i = 0; i < tracks.length; i++) {
+      tracks[i].mode = "disabled";
+    }
+
+    if (caption !== "off") {
+      const track = Array.from(tracks).find((track) => track.label === caption);
+
+      if (track) {
+        track.mode = "showing";
+      }
+    }
+
+    setSelectedCaption(caption);
+  };
 
   const renderSetting = () => {
     switch (activeSetting) {
-      case "quality":
-        return (
-          <div className="space-y-1 text-sm text-gray-300">
-            <button
-              type="button"
-              className="flex w-full items-center justify-between rounded-md px-3 py-1 cursor-pointer text-left hover:bg-white/10"
-            >
-              <span>Auto</span>
-              <span className="text-xs text-gray-500">720p</span>
-            </button>
-
-            <button
-              type="button"
-              className="w-full rounded-md px-3 py-1 cursor-pointer text-left hover:bg-white/10"
-            >
-              1080p
-            </button>
-
-            <button
-              type="button"
-              className="w-full rounded-md px-3 py-1 cursor-pointer text-left hover:bg-white/10"
-            >
-              720p
-            </button>
-
-            <button
-              type="button"
-              className="w-full rounded-md px-3 py-1 cursor-pointer text-left hover:bg-white/10"
-            >
-              360p
-            </button>
-          </div>
-        );
-
       case "captions":
         return (
-          <div className="space-y-1 text-sm text-gray-300">
-            <button
-              type="button"
-              className="w-full rounded-md px-3 py-1 text-left hover:bg-white/10"
-            >
-              Off
-            </button>
+          <div className="space-y-1 p-2 text-sm text-gray-300">
+            {["off", "English", "English CC"].map((caption) => (
+              <button
+                key={caption}
+                type="button"
+                onClick={() => changeCaption(caption)}
+                className="flex w-full cursor-pointer items-center justify-between rounded-md px-3 py-2 text-left hover:bg-white/10"
+              >
+                <span>{caption === "off" ? "Off" : caption}</span>
 
-            <button
-              type="button"
-              className="w-full rounded-md px-3 py-1 text-left hover:bg-white/10"
-            >
-              English
-            </button>
-
-            <button
-              type="button"
-              className="w-full rounded-md px-3 py-1 text-left hover:bg-white/10"
-            >
-              English CC
-            </button>
+                {selectedCaption === caption && (
+                  <Check size={15} className="text-primary" />
+                )}
+              </button>
+            ))}
           </div>
         );
-
       case "playback":
         return (
-          <div className="space-y-1 text-sm text-gray-300">
-            <button
-              type="button"
-              className="w-full rounded-md px-3 py-1 text-left hover:bg-white/10"
-            >
-              0.25x
-            </button>
+          <div className="space-y-1 p-2 text-sm text-gray-300">
+            {[0.25, 0.5, 0.75, 1, 1.25, 1.5, 2].map((rate) => (
+              <button
+                key={rate}
+                type="button"
+                onClick={() => changePlaybackRate(rate)}
+                className="flex w-full cursor-pointer items-center justify-between rounded-md px-3 py-2 text-left hover:bg-white/10"
+              >
+                <span>{rate}x</span>
 
-            <button
-              type="button"
-              className="w-full rounded-md px-3 py-1 text-left hover:bg-white/10"
-            >
-              0.5x
-            </button>
-
-            <button
-              type="button"
-              className="w-full rounded-md px-3 py-1 text-left hover:bg-white/10"
-            >
-              0.75x
-            </button>
-
-            <button
-              type="button"
-              className="w-full rounded-md px-3 py-1 text-left hover:bg-white/10"
-            >
-              1x
-            </button>
-
-            <button
-              type="button"
-              className="w-full rounded-md px-3 py-1 text-left hover:bg-white/10"
-            >
-              1.25x
-            </button>
-
-            <button
-              type="button"
-              className="w-full rounded-md px-3 py-1 text-left hover:bg-white/10"
-            >
-              1.5x
-            </button>
-
-            <button
-              type="button"
-              className="w-full rounded-md px-3 py-1 text-left hover:bg-white/10"
-            >
-              2x
-            </button>
+                {selectedRate === rate && (
+                  <Check size={15} className="text-primary" />
+                )}
+              </button>
+            ))}
           </div>
         );
 
@@ -147,6 +113,7 @@ export default function VideoSettings() {
               max="100"
               defaultValue="100"
               className="w-full accent-primary"
+              onChange={(event) => changeVolume(Number(event.target.value))}
             />
 
             <div className="flex justify-between text-xs text-gray-500">
@@ -176,12 +143,6 @@ export default function VideoSettings() {
       <div className="flex h-full w-full flex-col">
         <div className="flex h-12 shrink-0 items-center justify-between border-b border-white/10 bg-[#181818] px-3">
           <div className="flex items-center gap-1">
-            <VideoControlButton
-              label="Quality"
-              icon={<ChartNoAxesColumnIncreasing size={18} />}
-              onClick={() => setActiveSetting("quality")}
-            />
-
             <VideoControlButton
               label="Closed Captions"
               icon={<ClosedCaption size={18} />}
