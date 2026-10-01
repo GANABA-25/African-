@@ -1,11 +1,58 @@
+"use client";
+
 import Input from "@/components/input";
+import { useState } from "react";
 import { Mail, LockKeyhole } from "lucide-react";
 import Button from "@/components/button";
 import Link from "next/link";
+import { SigninTypes } from "@/types/authTypes";
 
 export default function Signin() {
+  const [signinData, setSigninData] = useState<SigninTypes>({
+    email: "",
+    password: "",
+  });
+
+  const [didEdit, setDidEdit] = useState<Record<keyof SigninTypes, boolean>>({
+    email: false,
+    password: false,
+  });
+
+  const inputChangeHandler = (inputIdentifier: string, value: string) => {
+    setSigninData((prevData) => ({
+      ...prevData,
+      [inputIdentifier]: value,
+    }));
+  };
+
+  const inputBlurHandler = (inputIdentifier: keyof SigninTypes) => {
+    setDidEdit((prevData) => ({
+      ...prevData,
+      [inputIdentifier]: true,
+    }));
+  };
+
+  const signinHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setDidEdit({
+      email: true,
+      password: true,
+    });
+
+    console.log(signinData);
+
+    // const errors = validateLoginInData(loginData);
+
+    // if (Object.values(errors).some((error) => error !== "")) {
+    //   return;
+    // }
+
+    // mutate(loginData);
+  };
+
   return (
-    <div className="w-full max-w-md space-y-6">
+    <form onSubmit={signinHandler} className="w-full max-w-md space-y-6">
       <div className="space-y-1">
         <h1 className="text-3xl font-black">Welcome back</h1>
 
@@ -19,6 +66,9 @@ export default function Signin() {
         placeholder="you@gmail.com"
         type="email"
         icon={<Mail size={15} />}
+        onChange={(e) => inputChangeHandler("email", e.target.value)}
+        onBlur={() => inputBlurHandler("email")}
+        didEdit={didEdit.email}
       />
 
       <Input
@@ -26,6 +76,9 @@ export default function Signin() {
         placeholder="Enter your password"
         type="password"
         icon={<LockKeyhole size={15} />}
+        onChange={(e) => inputChangeHandler("password", e.target.value)}
+        onBlur={() => inputBlurHandler("password")}
+        didEdit={didEdit.password}
       />
 
       <div className="cursor-pointer text-right text-sm text-primary transition-colors hover:text-primary-light">
@@ -39,6 +92,6 @@ export default function Signin() {
           Sign up
         </Link>
       </div>
-    </div>
+    </form>
   );
 }
