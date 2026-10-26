@@ -1,16 +1,35 @@
 "use client";
 
-import Input from "@/components/input";
-import { useState } from "react";
-import { Mail, LockKeyhole } from "lucide-react";
-import Button from "@/components/button";
 import Link from "next/link";
+import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+
 import { SigninTypes } from "@/types/authTypes";
+import Input from "@/components/input";
+import Button from "@/components/button";
+import { signIn } from "@/services/auth";
+
+import { Mail, LockKeyhole } from "lucide-react";
 
 export default function Signin() {
   const [signinData, setSigninData] = useState<SigninTypes>({
     email: "",
     password: "",
+  });
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: signIn,
+
+    onSuccess: (data) => {
+      console.log(data);
+    },
+
+    onError: (error: any) => {
+      console.log(error);
+      const message = error?.response?.data?.message || "Something went wrong";
+      toast.error(message);
+    },
   });
 
   const [didEdit, setDidEdit] = useState<Record<keyof SigninTypes, boolean>>({
@@ -40,7 +59,7 @@ export default function Signin() {
       password: true,
     });
 
-    console.log(signinData);
+    // console.log(signinData);
 
     // const errors = validateLoginInData(loginData);
 
@@ -48,7 +67,7 @@ export default function Signin() {
     //   return;
     // }
 
-    // mutate(loginData);
+    mutate(signinData);
   };
 
   return (
